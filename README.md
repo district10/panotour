@@ -1,114 +1,160 @@
-# HelloTodo 
+CMD 历史：
 
-## Overview
-HelloTodo is a simple todo list application created with [StrongLoop](https://strongloop.com/), [LoopBack](https://strongloop.com/node-js/loopback-framework/) and [Bluemix Mobile Services](http://www.ibm.com/cloud-computing/bluemix/solutions/mobilefirst/). It serves as a sample app demonstrating how to use the above technologies in order to create a mobile backend, enable authentication and collect monitoring data. 
+```bash
+C:\Users\tzx\Downloads\pano\panotour>cf login -u XXXXXXXXX@qq.com -o DigitalLifeGIS -s Pano
+API endpoint: https://api.ng.bluemix.net
 
-### Table of content
-* Overview
-* Creating this application
-* Deploying HelloTodo application to Bluemix
-* Using a MobileFirst Services Boilerplate
-* Manually deploying to Bluemix
-	* Getting setup with Bluemix
-	* Creating an instance of Mobile Client Access service
-	* Cloning and deploying HelloTodo app
-* Using the HelloTodo application and API
+Password>
+Authenticating...
+OK
 
-## Creating this application 
+Targeted org DigitalLifeGIS
 
-Below video demonstrates how the HelloTodo application was created. It might be instrumental in understanding how does StrongLoop, LoopBack and Mobile Client Access work. If you're just interested in running the app in Bluemix you may skip this video. 
-
-<a href="https://www.youtube.com/watch?v=fAM0wOfvelY" target="_blank">
-<img src="video-img.png"/>
-</a>
+Targeted space Pano
 
 
-## Deploying HelloTodo application to Bluemix
 
-There are two ways of running this application - using a MobileFirst Services Boilerplate on Bluemix or cloning the repository and deploying to Bluemix manually. 
+API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
+User:           XXXXXXXXX@qq.com
+Org:            DigitalLifeGIS
+Space:          Pano
 
-## Using a MobileFirst Services Boilerplate
-Start by creating a mobile backend on Bluemix by using the MobileFirst Services Boilerplate
+C:\Users\tzx\Downloads\pano\panotour>cf push panotour
+Using manifest file C:\Users\tzx\Downloads\pano\panotour\manifest.yml
 
-> The links in below steps lead to the US_SOUTH Bluemix region. You might want to pick a region closer to you, e.g. UK or SYDNEY. 
+Updating app panotour in org DigitalLifeGIS / space Pano as XXXXXXXXX@qq.com...
+OK
 
-1. [Log in](https://console.ng.bluemix.net/home/auth/bluemix) into your IBM Bluemix account
-2. Open Bluemix Catalog [https://console.ng.bluemix.net/catalog/](https://console.ng.bluemix.net/catalog/)
-3. Find and select the [MobileFirst Services Starter](https://console.ng.bluemix.net/catalog/starters/mobilefirst-services-starter/) under the Boilerplates section
-4. Select the space you want to add your mobile backend to
-5. Enter the name and a host for your mobile backend. 
-6. Optionally you can change service plans
-7. Click CREATE button
+Using route panotour.mybluemix.net
+Uploading panotour...
+Uploading app files from: C:\Users\tzx\Downloads\pano\panotour
+Uploading 945.1K, 32 files
+Done uploading
+OK
+Binding service panotour-AdvancedMobileAccess to app panotour in org DigitalLifeGIS / space Pano as XXXXXXXXX@qq.com...
+OK
+Binding service panotour-imfpush to app panotour in org DigitalLifeGIS / space Pano as XXXXXXXXX@qq.com...
+OK
+Binding service panotour-cloudantNoSQLDB to app panotour in org DigitalLifeGIS / space Pano as XXXXXXXXX@qq.com...
+OK
 
-As a result of the above steps Bluemix will provision a Node.JS runtime and populate it with a HelloTodo application created using StrongLoop. This application uses LoopBack framework to expose the `/api/Items` API which will be used by Web UI. This reposotory contains the source code of that HelloTodo application.
+Stopping app panotour in org DigitalLifeGIS / space Pano as XXXXXXXXX@qq.com...
+OK
 
-> Some of the methods of the above API are protected by Mobile Client Access service, therefore they will be unaccessible from web UI. You will need to use mobile HelloTodo samples to be able to access these APIs. This will be explained later.
+Starting app panotour in org DigitalLifeGIS / space Pano as XXXXXXXXX@qq.com...
+Downloading liberty-for-java...
+Downloading sdk-for-nodejs...
+Downloading swift_buildpack_v2_0_3-20161217-1748...
+Downloading dotnet-core...
+Downloading php_buildpack...
+Downloaded sdk-for-nodejs
+Downloading swift_buildpack...
+Downloaded swift_buildpack_v2_0_3-20161217-1748
+Downloaded liberty-for-java
+Downloaded dotnet-core
+Downloading ruby_buildpack...
+Downloaded php_buildpack
+Downloading nodejs_buildpack...
+Downloaded noop-buildpack
+Downloading go_buildpack...
+Downloaded ruby_buildpack
+Downloading python_buildpack...
+Downloaded java_buildpack
+Downloading xpages_buildpack...
+Downloaded nodejs_buildpack
+Downloading liberty-for-java_v3_6-20161209-1351...
+Downloaded swift_buildpack
+Downloading staticfile_buildpack...
+Downloaded go_buildpack
+Downloading binary_buildpack...
+Downloaded python_buildpack
+Downloaded staticfile_buildpack
+Downloading liberty-for-java_v3_5-20161114-1152...
+Downloaded xpages_buildpack
+Downloading sdk-for-nodejs_v3_9-20161128-1327...
+Downloaded liberty-for-java_v3_6-20161209-1351
+Downloading dotnet-core_v1_0_6-20161205-0912...
+Downloaded binary_buildpack
+Downloaded dotnet-core_v1_0_6-20161205-0912
+Downloaded sdk-for-nodejs_v3_9-20161128-1327
+Creating container
+Downloading noop-buildpack...
+Downloaded liberty-for-java_v3_4_1-20161030-2241
+Downloading liberty-for-java_v3_4_1-20161030-2241...
+Successfully created container
+Downloading app package...
+Downloaded app package (1.9M)
+Downloading build artifacts cache...
+Downloaded build artifacts cache (21.3M)
+Staging...
+-----> IBM SDK for Node.js Buildpack v3.10-20170119-1146
+       Based on Cloud Foundry Node.js Buildpack v1.5.24
+-----> Creating runtime environment
 
-Usually it might take couple of minutes for your application to be provisioned and started. Once you're back to your Bluemix Application Dashboard click on an application route found in the top part of a screen. 
+       NPM_CONFIG_LOGLEVEL=error
+       NPM_CONFIG_PRODUCTION=true
+       NODE_MODULES_CACHE=true
+-----> Installing binaries
+       engines.node (package.json):  0.12.x
+       engines.npm (package.json):   unspecified (use default)
 
-Once you open the web interface of a HelloTodo app you may continue to the `Using the HelloTodo application` and API section of this tutorial below
+       Resolving node version 0.12.x via 'node-version-resolver'
+       Installing IBM SDK for Node.js (0.12.18) from cache
+       Using default npm version: 2.15.11
+-----> Restoring cache
+       Loading 2 from cacheDirectories (default):
+       - node_modules
+-----> Checking and configuring service extensions before installing dependencies
+       Installing node modules (package.json)
+-----> Checking and configuring service extensions after installing dependencies
+-----> Installing App Management
+-----> Caching build
+       Clearing previous node cache
+       - node_modules
+       Saving 2 cacheDirectories (default):
+       - bower_components (nothing to cache)
+-----> Build succeeded!
+       ├── bms-mca-token-validation-strategy@2.0.9
+       ├── compression@1.6.2
+       ├── cors@2.8.1
+       ├── loopback@2.38.0
+       ├── loopback-boot@2.23.0
+       ├── loopback-connector-mysql@2.4.1
+       ├── loopback-datasource-juggler@2.54.0
+       ├── passport@0.3.2
+       └── serve-favicon@2.4.0
 
-## Manually deploying to Bluemix
-To manually deploy this application to Bluemix perform the following steps
+Exit status 0
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading build artifacts cache...
+Uploading droplet...
+Uploaded build artifacts cache (21.4M)
+Uploaded droplet (37.9M)
+Uploading complete
+Destroying container
+Successfully destroyed container
 
-### Getting setup with Bluemix
+1 of 1 instances running
 
-1. Make sure you have [IBM Bluemix](https://console.ng.bluemix.net/) account
-2. Make sure you have [Cloud Foundry CLI](https://www.ng.bluemix.net/docs/cli/downloads.html) tool installed
-3. Open terminal and 	verify that cf tool is available by running `cf --version`
-1. Setup `cf` tool to work with a Bluemix API server of your choice, for instance `cf api https://api.ng.bluemix.net`
+App started
 
-	> Use following URLs for other Bluemix regions:
-	
-	> US-SOUTH `https://api.ng.bluemix.net`
-	
-	> UNITED KINGDOM `https://api.en-gb.bluemix.net`
-	
-	> SYDNEY `https://api.au-syd.bluemix.net`
 
-1. Login with your Bluemix credentials and pick your organization and space by running `cf login`
+OK
 
-1. Make sure you're in a right region, organization and space by running `cf target`	
-### Creating an instance of Mobile Client Access service
+App panotour was started using this command `./vendor/initial_startup.rb`
 
-1. HelloTodo app requires an instance of a Mobile Client Access service to be bound. Mobile Client Access is a service that provides authentication and monitoring capabilities for your Bluemix apps. 
+Showing health and status for app panotour in org DigitalLifeGIS / space Pano as XXXXXXXXX@qq.com...
+OK
 
-1. Run the following command to create a new instance of Mobile Client Access service if your space. 
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: panotour.mybluemix.net
+last uploaded: Mon Feb 27 03:41:43 UTC 2017
+stack: cflinuxfs2
+buildpack: SDK for Node.js(TM) (ibm-node.js-0.12.18, buildpack-v3.10-20170119-1146)
 
-	```Shell
-	cf create-service AdvancedMobileAccess Bronze my-MCA-service-instance
-	```
-	
-	> You can pick any other name instead of my-MCA-service-instane
-	
-1. Run `cf services` command and validate a new service instance was added
-
-### Cloning and deploying HelloTodo app
-
-1. Clone this repository to your local disk
-
-	```Shell
-	git clone https://github.com/ibm-bluemix-mobile-services/bms-hellotodo-strongloop
-	```
-	
-1. Edit `manifest.yml` file. Change the `host` property to some unique value. There might be other applications deployed to Bluemix with `hellotodo-with-strongloop` host. If do not change it your deployment might fail. 
-
-1. Edit `manifest.yml` file and add the services section. Add the Mobile Client Access service instance name created in previous steps. Final result should look like this
-
-	![image](updated-manifest.png) 
-
-1. Use `cf push` command to deploy your application to Bluemix, bind it to Mobile Client Access service instance and start it. 
-
-1. Once deployment completes successfully use `cf apps` command to see the list of available applications and their routes
-
-1. Your Bluemix application should be available at `https//{hostname-from-manifest.yml}.mybluemix.net`
-
-## Using the HelloTodo application and API
-You will see a HelloTodo web app. Start by following the guided experience steps described in the web UI. Eventually you will try to DELETE a todo item and will discover that this action can only be complete when using the HelloTodo mobile apps samples. This is due to a fact that the mobile backend is by default protected by a Mobile Client Access - a Bluemix service that provides security and monitoring functionality for mobile backends. 
-
-> You might also want to hit the "View API Reference" button on web UI to see the API specs.
-
-Continue experiencing Bluemix Mobile Services by using one of the following sample applications.
-
-* [HelloTodo for iOS](https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellotodo)
-* [HelloTodo for Android](https://github.com/ibm-bluemix-mobile-services/bms-samples-android-hellotodo) 
+     state     since                    cpu    memory           disk           details
+#0   running   2017-02-27 11:43:37 AM   0.2%   261.8M of 512M   209.5M of 1G
+```
